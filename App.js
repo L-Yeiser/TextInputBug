@@ -16,12 +16,23 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
+type Props = {
+  scrollEnabled: boolean,
+  multiline: boolean,
+};
+
 export default class App extends Component<Props> {
+  static defaultProps = {
+    scrollEnabled: true,
+    multiline: false,
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <TextInput scrollEnabled={false} />
+        <TextInput
+          {...this.props}
+        />
       </View>
     );
   }
